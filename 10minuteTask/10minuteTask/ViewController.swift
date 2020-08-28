@@ -10,15 +10,33 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var Subject: NSTextField!
     @IBOutlet weak var TimeCounter: NSTextField!
+    @IBOutlet weak var startButton: NSButtonCell!
+    
+    @IBAction func startButton(_ sender: Any) {
+        let isStart = startButton.state.rawValue
+        
+        if isStart == 0 {
+            print("카운터 종료")
+            startButton.title = "stop"
+            stopTimer()
+        } else{
+            print("카운터 시작")
+            startButton.title = "start"
+            startTimer()
+        }
+        
+    }
     
     
     var timer: Timer?
     var counter = 0
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startTimer()
+    
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +48,7 @@ class ViewController: NSViewController {
     
     
     func startTimer(){
+    
         if let timer = self.timer{
             if !timer.isValid{
                 self.timer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
@@ -38,8 +57,18 @@ class ViewController: NSViewController {
             self.timer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
         }
     }
+    
+    func stopTimer(){
+        if let timer = self.timer{
+            if timer.isValid{
+                timer.invalidate()
+            }
+        }
+    }
+    
     @objc func timerCallBack(){
-        counter+=1;
+        counter+=1
+        TimeCounter.stringValue = "\(counter)"
         print("\(counter)")
     }
   

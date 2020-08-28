@@ -709,8 +709,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EJl-gp-UDN">
-                                <rect key="frame" x="336" y="182" width="51" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJl-gp-UDN">
+                                <rect key="frame" x="332" y="179" width="51" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Subject" id="mlX-6i-HPH">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -837,6 +837,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4H0-Ew-sN0">
+                                <rect key="frame" x="323" y="69" width="77" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RnL-dk-EJQ">
+                                    <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="startButton:" target="XfG-lQ-9wD" id="g1B-1s-odA"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yS3-O2-hgs" secondAttribute="trailing" constant="104" id="Lhj-rE-MEv"/>
@@ -848,7 +859,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Subject" destination="EJl-gp-UDN" id="UNd-yK-kyK"/>
                         <outlet property="TimeCounter" destination="yS3-O2-hgs" id="ZZA-3K-JLj"/>
+                        <outlet property="startButton" destination="RnL-dk-EJQ" id="8wM-Lz-bjV"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
