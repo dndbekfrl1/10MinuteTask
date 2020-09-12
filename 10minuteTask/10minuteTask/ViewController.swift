@@ -8,11 +8,19 @@
 
 import Cocoa
 
+
+
 class ViewController: NSViewController {
 
     @IBOutlet weak var Subject: NSTextField!
     @IBOutlet weak var TimeCounter: NSTextField!
     @IBOutlet weak var startButton: NSButtonCell!
+    @IBOutlet weak var addTask: NSButton!
+    
+    @IBAction func addTaskButtonClick(_ sender: Any) {
+        print("add task button clicked")
+        
+    }
     
     @IBAction func startButton(_ sender: Any) {
         let isStart = startButton.state.rawValue
@@ -71,10 +79,6 @@ class ViewController: NSViewController {
         TimeCounter.stringValue = "\(counter)"
         print("\(counter)")
     }
-  
-    
-    
-
 
 }
 
